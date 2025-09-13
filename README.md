@@ -4,7 +4,7 @@
 > **Hybrid representation learning + reinforcement learning** for market regime detection and adaptive trading across equities, crypto, and options — with strict **t→t+1 causal evaluation** (no look-ahead), transaction costs, and reproducible plots.
 
 <p align="center">
-  <img src="Plots/Unknown-64.png" width="90%" alt="Equity curves: Baseline vs Hard/Soft vs PPO">
+  <img src="Plots/S&P Test - Equity Curves.png" width="90%" alt="Equity curves: Baseline vs Hard/Soft vs PPO">
 </p>
 
 # 📑 Dataset Information
