@@ -1,11 +1,18 @@
 
 # Adaptive RL for Regime-Aware Trading (VAE + PPO)
 
+
+
+
 > **Hybrid representation learning + reinforcement learning** for market regime detection and adaptive trading across equities, crypto, and options — with strict **t→t+1 causal evaluation** (no look-ahead), transaction costs, and reproducible plots.
 
 <p align="center">
   <img src="Plots/S&P Test - Equity Curves.png" width="90%" alt="Equity curves: Baseline vs Hard/Soft vs PPO">
 </p>
+
+# Description
+
+### Aa Hybrid VAE + PPO Reinforcement Learning framework for regime detection and adaptive trading in financial markets. The system combines representation learning (β-Variational Autoencoder) with policy optimization (Proximal Policy Optimization) to learn causal, no-lookahead trading strategies across multiple asset classes
 
 # 📑 Dataset Information
 This project integrates multi-asset datasets to evaluate β-VAE + PPO reinforcement learning for regime detection and adaptive trading.
