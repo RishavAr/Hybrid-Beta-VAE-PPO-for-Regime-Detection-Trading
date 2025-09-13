@@ -1,1 +1,1 @@
-# Adaptive RL for Regime-Aware Trading (β-VAE + PPO)
+# Adaptive RL for Regime-Aware Trading (VAE + PPO)
