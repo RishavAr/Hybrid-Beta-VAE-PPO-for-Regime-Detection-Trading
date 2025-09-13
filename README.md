@@ -7,38 +7,38 @@
   <img src="Plots/Unknown-64.png" width="90%" alt="Equity curves: Baseline vs Hard/Soft vs PPO">
 </p>
 
-## 📑 Dataset Information
+# 📑 Dataset Information
 This project integrates multi-asset datasets to evaluate β-VAE + PPO reinforcement learning for regime detection and adaptive trading.
 
-# 1. Equities (S&P 500)
+## 1. Equities (S&P 500)
 Source: Yahoo Finance (yfinance) or equivalent vendor (Bloomberg/Quandl if licensed).
 Universe: ~468 S&P 500 tickers (2015–2025).
 
-# Fields:
+# # Fields:
 date: trading day (YYYY-MM-DD)
 tic: stock ticker (AAPL, MSFT, AMZN, etc.)
 open, high, low, close, adj_close: daily OHLC prices
 volume: daily trading volume
 
-# Features engineered (≈1872 dims):
+##  Features engineered (≈1872 dims):
 Log returns, rolling volatility, momentum, EWMA
 Z-score volume anomalies
 Rolling Sharpe, sector dummy encodings
 
-# 3. Cryptocurrencies
+## 3. Cryptocurrencies
 Source: Yahoo Finance (yfinance) — BTC-USD, ETH-USD.
 Period: 2015–2025 (daily).
 Fields: same as equities (OHLCV).
 Purpose: Out-of-distribution (OOD) evaluation of PPO agent.
 
 
-# Notes:
+## Notes:
 BTC shows 77% CAGR, Sharpe ~1.99
 ETH shows 59% CAGR, Sharpe ~1.34
 Larger drawdowns (−20% to −30%) compared to equities.
 
 
-# 5. Options (SPY, QQQ)
+## 5. Options (SPY, QQQ)
 Source: CBOE / Yahoo Finance options chain (end-of-day).
 Underlying: SPY (S&P 500 ETF), QQQ (Nasdaq-100 ETF).
 
@@ -46,7 +46,7 @@ Contracts used:
 ATM (At-the-money) monthly call/put options
 Rolled forward at expiry to maintain continuous exposure
 
-# Fields:
+## Fields:
 date: trading day
 underlying: SPY or QQQ
 option_price: midpoint of bid/ask
@@ -55,11 +55,9 @@ open_interest, volume
 
 Purpose: Evaluate PPO policy generalization to derivative instruments.
 
-# # Results:
-SPY options: Sharpe 1.52, CAGR 19%
-QQQ options: Sharpe 1.61, CAGR 29%
 
-# 7. Merged Dataset & Pipeline
+
+## 7. Merged Dataset & Pipeline
    
 All assets resampled to daily frequency and aligned on date.
 Equities → β-VAE latent training.
@@ -67,7 +65,7 @@ Equities → β-VAE latent training.
 Crypto + Options → PPO OOD evaluation only (no leakage).
 Final matrix shape:
 
-# Equities: 468 tickers × 10 yrs ≈ 1.2M rows
+## Equities: 468 tickers × 10 yrs ≈ 1.2M rows
 Crypto: 2 tickers × 10 yrs ≈ 5k rows each
 Options: 2 underlyings × monthly rolls × 10 yrs ≈ 120 rolls
 
@@ -176,30 +174,6 @@ python -m src.run
 
 ---
 
-## 🧰 Configuration (example)
-
-```python
-CONFIG = {
-  "SEED": 42,
-  "ROLL_WIN": 10,
-  "LATENT_DIM": 16,
-  "BETA": 6.0,
-  "VAE_EPOCHS": 500,
-  "VAE_BATCH_SIZE": 128,
-  "LR": 1e-3,
-  "TRANSACTION_COST_BPS": 10,
-  "SLIPPAGE_BPS": 5,
-  "RL_TRAIN_TIMESTEPS": 200_000,
-  "DATA_CSV_PATH": "data/S&P500_all_companies.csv",
-  "RESULTS_FILE": "final_results_no_lookahead.csv",
-  "EWMA_ALPHA": 0.90,
-  "HARD_ENTER_TH": 0.58,
-  "HARD_EXIT_TH": 0.42,
-  "DWELL_DAYS": 5,
-  "K_MIN": 3, "K_MAX": 6
-}
-```
-
 ---
 
 ## 📈 Reproduce figures interactively
@@ -248,9 +222,19 @@ If you’re evaluating this for an **LLM Researcher in quant**:
 
 ---
 
-## 📄 License
+# Results:
+SPY options: Sharpe 1.52, CAGR 19%
+QQQ options: Sharpe 1.61, CAGR 29%
 
-MIT
+ # 7. Sharpe by Asset (PPO)
+![Sharpe Bar](Plots/Unknown-70.png)
+
+
+Risk-adjusted returns (Sharpe): BTC (1.99) > QQQ (1.62) > SPY (1.52).
+
+Confirms PPO generalizes across asset classes with stable Sharpe >1.0.
+
+
 
 ## 🙌 Citation
 
