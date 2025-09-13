@@ -7,6 +7,69 @@
   <img src="Plots/Unknown-64.png" width="90%" alt="Equity curves: Baseline vs Hard/Soft vs PPO">
 </p>
 
+## 📑 Dataset Information
+This project integrates multi-asset datasets to evaluate β-VAE + PPO reinforcement learning for regime detection and adaptive trading.
+
+1. Equities (S&P 500)
+Source: Yahoo Finance (yfinance) or equivalent vendor (Bloomberg/Quandl if licensed).
+Universe: ~468 S&P 500 tickers (2015–2025).
+
+Fields:
+date: trading day (YYYY-MM-DD)
+tic: stock ticker (AAPL, MSFT, AMZN, etc.)
+open, high, low, close, adj_close: daily OHLC prices
+volume: daily trading volume
+
+Features engineered (≈1872 dims):
+Log returns, rolling volatility, momentum, EWMA
+Z-score volume anomalies
+Rolling Sharpe, sector dummy encodings
+
+3. Cryptocurrencies
+Source: Yahoo Finance (yfinance) — BTC-USD, ETH-USD.
+Period: 2015–2025 (daily).
+Fields: same as equities (OHLCV).
+Purpose: Out-of-distribution (OOD) evaluation of PPO agent.
+
+Notes:
+BTC shows 77% CAGR, Sharpe ~1.99
+ETH shows 59% CAGR, Sharpe ~1.34
+Larger drawdowns (−20% to −30%) compared to equities.
+
+
+5. Options (SPY, QQQ)
+Source: CBOE / Yahoo Finance options chain (end-of-day).
+Underlying: SPY (S&P 500 ETF), QQQ (Nasdaq-100 ETF).
+
+Contracts used:
+ATM (At-the-money) monthly call/put options
+Rolled forward at expiry to maintain continuous exposure
+
+Fields:
+date: trading day
+underlying: SPY or QQQ
+option_price: midpoint of bid/ask
+implied_vol: Black–Scholes implied volatility (from CBOE)
+open_interest, volume
+
+Purpose: Evaluate PPO policy generalization to derivative instruments.
+
+Results:
+SPY options: Sharpe 1.52, CAGR 19%
+QQQ options: Sharpe 1.61, CAGR 29%
+
+7. Merged Dataset & Pipeline
+   
+All assets resampled to daily frequency and aligned on date.
+Equities → β-VAE latent training.
+
+Crypto + Options → PPO OOD evaluation only (no leakage).
+Final matrix shape:
+
+Equities: 468 tickers × 10 yrs ≈ 1.2M rows
+Crypto: 2 tickers × 10 yrs ≈ 5k rows each
+Options: 2 underlyings × monthly rolls × 10 yrs ≈ 120 rolls
+
 ## 🔍 What’s inside
 
 * **β-VAE (500 epochs)** learns latent market states from 1,800+ engineered features over 468 stocks
