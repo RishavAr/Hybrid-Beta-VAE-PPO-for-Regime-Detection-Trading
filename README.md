@@ -12,7 +12,7 @@
 
 # Description
 
-### Aa Hybrid VAE + PPO Reinforcement Learning framework for regime detection and adaptive trading in financial markets. The system combines representation learning (β-Variational Autoencoder) with policy optimization (Proximal Policy Optimization) to learn causal, no-lookahead trading strategies across multiple asset classes
+### Aa Hybrid VAE + PPO Reinforcement Learning framework for regime detection and adaptive trading in financial markets. The system combines representation learning (Variational Autoencoder) with policy optimization (Proximal Policy Optimization) to learn causal, no-lookahead trading strategies across multiple asset classes
 
 # 📑 Dataset Information
 This project integrates multi-asset datasets to evaluate β-VAE + PPO reinforcement learning for regime detection and adaptive trading.
