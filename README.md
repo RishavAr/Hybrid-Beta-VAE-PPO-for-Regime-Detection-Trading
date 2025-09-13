@@ -1,6 +1,3 @@
-here’s a clean, copy-paste **GitHub README.md** you can drop straight into your repo. it’s brief, recruiter-friendly, and still gives engineers everything to run the project end-to-end.
-
----
 
 # Adaptive RL for Regime-Aware Trading (VAE + PPO)
 
