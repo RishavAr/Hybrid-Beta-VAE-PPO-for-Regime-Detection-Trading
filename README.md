@@ -256,17 +256,5 @@ If you use this work:
 Aryan, R. (2025). Adaptive RL for Regime-Aware Trading (β-VAE + PPO).
 ```
 
----
 
-### Drop-in assets
 
-Save your figures to `assets/` with these names to render in the README:
-
-* `sp_equity_curves.png`, `sp_drawdowns.png`, `sp_rolling_sharpe.png`
-* `ood_equity_curves.png`, `ood_drawdowns.png`
-* `ppo_cagr_bar.png`, `ppo_sharpe_bar.png`
-* `hard_regime_diag.png`
-
----
-
-want me to turn your current script into the **`src/`** files + add this README and a ready-to-run **requirements.txt** as a zip so you can push in one shot?
