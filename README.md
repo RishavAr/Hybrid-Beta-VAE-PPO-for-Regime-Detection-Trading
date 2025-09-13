@@ -226,7 +226,7 @@ If you’re evaluating this for an **LLM Researcher in quant**:
 SPY options: Sharpe 1.52, CAGR 19%
 QQQ options: Sharpe 1.61, CAGR 29%
 
- # 7. Sharpe by Asset (PPO)
+ ## 7. Sharpe by Asset (PPO)
 ![Sharpe Bar](Plots/Unknown-70.png)
 
 
@@ -234,7 +234,12 @@ Risk-adjusted returns (Sharpe): BTC (1.99) > QQQ (1.62) > SPY (1.52).
 
 Confirms PPO generalizes across asset classes with stable Sharpe >1.0.
 
+## PPO OOD Equity Curves (BTC / ETH / SPY / QQQ)
+![OOD Equity Curves](Plots/Unknown-67.png)
 
+Demonstrates generalization of PPO agent to out-of-distribution assets.
+
+QQQ options (orange) outperform with strong compounding; BTC also grows significantly.
 
 ## 🙌 Citation
 
