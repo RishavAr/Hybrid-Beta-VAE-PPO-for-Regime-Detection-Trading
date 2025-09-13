@@ -1,0 +1,18 @@
+# Core ML & DL
+torch
+scikit-learn
+numpy
+pandas
+tqdm
+matplotlib
+
+# RL
+stable-baselines3[extra]
+gymnasium
+
+# Data
+yfinance
+joblib
+
+# Optional (not mandatory, but useful)
+seaborn
