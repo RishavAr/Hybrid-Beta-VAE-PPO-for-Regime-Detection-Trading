@@ -1,1 +1,1 @@
-# Hybrid--VAE-PPO-for-Regime-Detection-Trading
+# Adaptive RL for Regime-Aware Trading (β-VAE + PPO)
