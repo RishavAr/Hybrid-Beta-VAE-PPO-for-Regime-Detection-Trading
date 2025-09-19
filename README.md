@@ -242,7 +242,7 @@ Risk-adjusted returns (Sharpe): BTC (1.99) > QQQ (1.62) > SPY (1.52).
 Confirms PPO generalizes across asset classes with stable Sharpe >1.0.
 
 ## PPO OOD Equity Curves (BTC / ETH / SPY / QQQ)
-![OOD Equity Curves](Plots/Unknown-67.png)
+![OOD Equity Curves](Plots/PPO OOD - Drawdowns.png)
 
 Demonstrates generalization of PPO agent to out-of-distribution assets.
 
