@@ -234,7 +234,7 @@ SPY options: Sharpe 1.52, CAGR 19%
 QQQ options: Sharpe 1.61, CAGR 29%
 
  ## 7. Sharpe by Asset (PPO)
-![Sharpe Bar](Plots/Unknown-70.png)
+![Sharpe Bar](Plots/PPO-Sharpe-by-asset.png)
 
 
 Risk-adjusted returns (Sharpe): BTC (1.99) > QQQ (1.62) > SPY (1.52).
