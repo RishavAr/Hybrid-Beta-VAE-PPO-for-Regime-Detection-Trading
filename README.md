@@ -249,7 +249,7 @@ Demonstrates generalization of PPO agent to out-of-distribution assets.
 QQQ options (orange) outperform with strong compounding; BTC also grows significantly.
 
 ## CAGR by Asset (PPO)
-![CAGR Bar](Plots/Unknown-69.png)
+![CAGR Bar](Plots/PPO-CAGR-BY-ASSET.png)
 
 Highest CAGR: BTC (+77%), followed by ETH (+59%), QQQ (+29%).
 
